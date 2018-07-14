@@ -1,0 +1,119 @@
+{extend name="common/base" /}
+
+
+{block name="content"}
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+		<span class="c-gray en">&gt;</span>
+		管理员
+		<span class="c-gray en">&gt;</span>
+		权限管理
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<form action="<?=url('')?>">
+				<div class="text-c input-search">
+					
+					<span class="select-box inline">
+					<select name="status" class="select">
+						<option value="">===请选择状态===</option>
+						<?php foreach (model('modelcommon')->status_arr as $key => $value) {?>
+							<option value="<?=$key?>"><?=$value?></option>
+						<?php } ?>
+					</select>
+					</span>
+
+					<input type="text" name="title" value="{$Request.param.title}" placeholder="标题" class="input-text input-search-text">
+					<input type="hidden" name='pid' value="{$Request.param.pid}">
+	
+					<button name=""  class="btn btn-success btn-search" type="submit">
+						<i class="Hui-iconfont">&#xe665;</i> 搜索 &nbsp;</button>
+					
+				</div>
+			</form>
+			<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<span class="l do-btn">
+				<a href="javascript:;" class="btn btn-danger radius do-dels" data-url='<?=url("del")?>' >批量删除</a>
+				<a class="btn btn-primary radius" href="<?=url('add',['pid'=>$pid])?>">添加权限</a>
+				
+				</span>
+				<span class="r record-num">共有数据：<strong><?=$list['total']?></strong> 条</span>
+			</div>
+
+			<div class="mt-20 ">
+			    
+			        <div class="dataTables_wrapper ">
+			            
+			            <table class="table table-border table-bordered table-hover table-striped table-list" id="DataTables_Table_0" role="grid" >
+			                <thead>
+			                    <tr class="text-c">
+									<th><input type="checkbox" name="" value="" ></th>
+									<th>ID</th>
+									<th>标题</th>
+									<th>规则标识</th>
+									<th>规则表达式</th>
+									<th>字体图标</th>
+									<th>是否为菜单</th>
+									<th>上级ID</th>
+									<th>排序</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+			                </thead>
+			                <tbody>
+			                	<?php if(empty($list['data'])){ ?>
+			                	<tr class="text-c " role="row" >
+			                        <td colspan='99'>sorry！暂无数据</td>
+			                    </tr>
+			                	<?php }else{ ?>
+				                	<?php foreach ($list['data'] as $info) { ?>
+				                		<tr class="text-c " role="row">
+					                        <td><input type="checkbox" value="<?=$info['id']?>" class="info-id"></td>
+					                        <td><?=$info['id']?></td>
+					                        <td><a href="<?=url('index',['pid'=>$info['id']])?>">
+					                        	<span class="label label-default"><?=$info['title']?></span>
+					                        </a></td>
+					                        <td><?=$info['name']?></td>
+					                        <td><?=$info['condition']?></td>
+					                        <td><i class="Hui-iconfont menu_dropdown-arrow"><?=$info['icon']?></i></td>
+					                        <td><?=$info['is_menu_text']?></td>
+					                        <td><?=$info['pid']?></td>
+					                        <td><?=$info['sort']?></td>
+					                        <td><?=$info['status_text']?></td>
+					                        <td class="f-14 td-manage">
+					                            <a class="ml-5 form-icon" href="<?=url('update',['id'=>$info['id']])?>" title="编辑"><i class="Hui-iconfont"></i></a>
+					                            <a class="ml-5 do-del form-icon" data-url='<?=url("del")?>' href="javascript:;" title="删除"><i class="Hui-iconfont"></i></a>
+					                        </td>
+					                    </tr>
+				                	<?php } ?>
+			                	<?php } ?>
+			                    
+			                  
+			                    
+			                </tbody>
+			            </table>
+			            
+			            <?=$page?>
+			        	
+			        </div>
+				
+			</div>
+
+		</article>
+	</div>
+</section>
+{/block}
+
+
+{block name="footer"}
+<script type="text/javascript" src="__HUI__lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__HUI__lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	$("select[name='status']").val("{$Think.get.status}");
+
+});
+</script>
+{/block}

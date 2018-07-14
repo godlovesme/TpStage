@@ -1,0 +1,57 @@
+{extend name="common/base" /}
+
+{block name="header"}
+<link rel="stylesheet" href="__HUI__lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+{/block}
+{block name="content"}
+<section class="Hui-article-box form-list" >
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+		<span class="c-gray en">&gt;</span>
+		管理员
+		<span class="c-gray en">&gt;</span>
+		角色关联
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<article class="page-container " >
+
+	    <div class="Huialert Huialert-danger data-tip"><i class="Hui-iconfont">&#xe6a6;</i><font></font></div>
+
+		<form class="form form-horizontal data-form" id="form-article-add" data-url="<?=url()?>">
+			<input type="hidden" name="id" value="<?=$info['id']?>">
+
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-2"><span class="c-red">*</span>用户ID：</label>
+				<div class="formControls col-xs-12 col-sm-9">
+					<input type="text" class="input-text" value="<?=$info['uid']?>" placeholder="" id="" name="uid">
+				</div>
+			</div>
+
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-2"><span class="c-red">*</span>角色ID：</label>
+				<div class="formControls col-xs-12 col-sm-9">
+					<input type="text" class="input-text" value="<?=$info['group_id']?>" placeholder="" id="" name="group_id">
+				</div>
+			</div>
+			
+			
+		</form>
+		<br>
+		<div class="row cl">
+			
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button class="btn btn-primary radius do-form" ><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button class="btn btn-success radius" onclick="window.location.href='<?=url('index')?>'" ><i class="Hui-iconfont">&#xe678;</i> 返回</button>
+			</div>
+		</div>
+		
+	</article>
+</section>
+{/block}
+
+
+{block name="footer"}
+
+<script type="text/javascript">
+
+</script>
+{/block}

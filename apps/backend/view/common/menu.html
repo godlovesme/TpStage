@@ -1,0 +1,53 @@
+<aside class="Hui-aside">
+
+	<div class="menu_dropdown bk_2">
+		<?php $menu_select = 0; $menu_select_action = 0;?>
+		<?php foreach (request()->menuList as $mlk=>$mlvo) { ?>
+			<?php if(isset($mlvo['_child']) && $mlvo['id']==request()->selectMenu){ ?>
+				<?php foreach ($mlvo['_child'] as $mlkk=>$mlvoo) { ?>
+					<dl>
+						<dt><i class="Hui-iconfont"><?=$mlvoo['icon']?></i> <?=$mlvoo['title']?><i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+					<?php if(isset($mlvoo['_child'])){ ?>
+						<dd 
+						<?php if($mlvoo['id']==request()->menuPidArr[strtolower(request()->module().'/'.request()->controller())]){ ?>
+							style="display:block"
+						<?php } ?>
+						>
+							<ul>
+						<?php foreach ($mlvoo['_child'] as $mlkkk=>$mlvooo) { ?>
+							<li 
+
+						<?php foreach ($mlvoo['_child'] as $_mlkkk=>$_mlvooo) { ?>
+							<?php if(ACCESS_URL==strtolower($_mlvooo['name'])){
+								$menu_select_action = 1;
+							} ?>
+						<?php } ?>
+						
+						<?php if($menu_select_action==1){ ?>
+							<?php if(ACCESS_URL==strtolower($mlvooo['name']) && $menu_select==0){ $menu_select = 1; ?>
+								class="current"
+							<?php } ?>
+						<?php }else{ ?>
+							<?php if(explode("/", strtolower($mlvooo['name']))[1]==strtolower(request()->controller()) && $menu_select==0){ $menu_select = 1; ?>
+								class="current"
+							<?php } ?>
+						<?php } ?>
+							>
+								<a href="<?=url($mlvooo['name'])?>" title="<?=$mlvooo['title']?>"><?=$mlvooo['title']?></a>
+							</li>
+						<?php } ?>
+							</ul>
+						</dd>
+					<?php } ?>
+					</dl>
+				<?php } ?>
+			<?php } ?>
+		<?php }
+
+		?>
+
+	</div>
+</aside>
+<div class="dislpayArrow hidden-xs">
+	<a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a>
+</div>

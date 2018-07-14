@@ -1,0 +1,99 @@
+{extend name="common/base" /}
+
+
+{block name="content"}
+<section class="Hui-article-box form-list" >
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+		<span class="c-gray en">&gt;</span>
+		管理员
+		<span class="c-gray en">&gt;</span>
+		管理员
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<article class="page-container " >
+
+	    <div class="Huialert Huialert-danger data-tip"><i class="Hui-iconfont">&#xe6a6;</i><font></font></div>
+
+		<form class="form form-horizontal data-form" id="form-article-add" data-url="<?=url()?>">
+			<input type="hidden" name="uid" value="<?=$info['uid']?>">
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-2"><span class="c-red">*</span>昵称：</label>
+				<div class="formControls col-xs-12 col-sm-9">
+					<input type="text" class="input-text" value="<?=$info['nickname']?>" placeholder="" id="" name="nickname">
+				</div>
+			</div>
+
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-2"><span class="c-red">*</span>密码：</label>
+				<div class="formControls col-xs-12 col-sm-9">
+					<input type="text" class="input-text" value="" placeholder="" id="" name="password">
+				</div>
+			</div>
+
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-2"><span class="c-red">*</span>邮箱：</label>
+				<div class="formControls col-xs-12 col-sm-9">
+					<input type="text" class="input-text" value="<?=$info['email']?>" placeholder="" id="" name="email">
+				</div>
+			</div>
+
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-2"><span class="c-red">*</span>微信：</label>
+				<div class="formControls col-xs-12 col-sm-9">
+					<input type="text" class="input-text" value="<?=$info['weixin']?>" placeholder="" id="" name="weixin">
+				</div>
+			</div>
+			
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-2"><span class="c-red">*</span>性别：</label>
+				<div class="formControls col-xs-12 col-sm-9 skin-minimal">
+					<div class="radio-box">
+						<input type="radio" id="sex-1" name="sex" value='男' checked>
+						<label for="sex-1">男</label>
+					</div>
+					<div class="radio-box">
+						<input type="radio" id="sex-2" name="sex" value='女'>
+						<label for="sex-2">女</label>
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-2"><span class="c-red">*</span>状态：</label>
+				<div class="formControls col-xs-12 col-sm-9"> <span class="select-box">
+					<select name="status" class="select">
+						<option value="1">启用</option>
+						<option value="0">禁用</option>
+						<option value="-1">删除</option>
+					</select>
+					</span> </div>
+			</div>
+			
+		</form>
+		<br>
+		<div class="row cl">
+			
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button class="btn btn-primary radius do-form" ><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button class="btn btn-success radius" onclick="window.location.href='<?=url('index')?>'" ><i class="Hui-iconfont">&#xe678;</i> 返回</button>
+			</div>
+		</div>
+		
+	</article>
+</section>
+{/block}
+
+
+{block name="footer"}
+<script type="text/javascript" src="__HUI__lib/My97DatePicker/4.8/WdatePicker.js"></script>  
+<script type="text/javascript">
+
+$(function(){
+	$("input[name='sex'][value='<?=$info['sex']?>']").prop("checked", "checked");
+	$("select[name='status']").val("<?=$info['status']?>");
+});
+
+
+</script>
+{/block}
