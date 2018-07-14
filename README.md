@@ -24,4 +24,8 @@
 4. 挂件：图片上传，百度编辑器
 
 ### 效果图
-![即时聊天](https://github.com/godlovesme/Lchat/raw/master/image/1.png "即时聊天")
+![首页](https://github.com/godlovesme/TpStage/blob/master/git-image/1.PNG "首页")
+
+![列表](https://github.com/godlovesme/TpStage/blob/master/git-image/2.PNG "列表")
+
+![编辑](https://github.com/godlovesme/TpStage/blob/master/git-image/3.PNG "编辑")
