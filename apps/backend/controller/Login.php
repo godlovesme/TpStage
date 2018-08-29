@@ -30,10 +30,11 @@ class Login extends Controller
 			 	return json(['status'=>0,'msg'=>"验证码错误"]);
 			};
 
-			$userInfo = model('admin')->where('email',$email)->find()->toArray();
+			$userInfo = model('admin')->where('status',1)->where('email',$email)->find();
 			if(empty($userInfo)){
-				return json(['status'=>0,'msg'=>"账户有误1"]);
+				return json(['status'=>0,'msg'=>"账户有误1"]); 
 			}
+			$userInfo = $userInfo->toArray();
 			if($userInfo['password']!=md5($password)){
 				return json(['status'=>0,'msg'=>"账户有误2"]);
 			}

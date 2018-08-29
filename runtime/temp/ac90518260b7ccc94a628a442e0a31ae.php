@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:49:"E:\git\TpStage/apps/backend\view\index\index.html";i:1531559979;s:49:"E:\git\TpStage\apps\backend\view\common\base.html";i:1531559955;s:51:"E:\git\TpStage\apps\backend\view\common\header.html";i:1531559973;s:49:"E:\git\TpStage\apps\backend\view\common\menu.html";i:1531106323;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:49:"E:\git\TpStage/apps/backend\view\index\index.html";i:1531819172;s:49:"E:\git\TpStage\apps\backend\view\common\base.html";i:1531559955;s:51:"E:\git\TpStage\apps\backend\view\common\header.html";i:1531559973;s:49:"E:\git\TpStage\apps\backend\view\common\menu.html";i:1531106323;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
